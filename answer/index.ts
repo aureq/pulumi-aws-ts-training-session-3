@@ -31,7 +31,7 @@ export = async () => {
     const igw = new aws.ec2.InternetGateway(`${baseName}-igw`, {
         vpcId: vpc.id,
         tags: {
-            // TODO: A. Resource tagged
+            // TODO: 8. Resource tagged
             owner: ownerEmail,
         }
     },{
@@ -49,7 +49,7 @@ export = async () => {
             }
         ],
         tags: {
-            // TODO: A. Resource tagged
+            // TODO: 8. Resource tagged
             owner: ownerEmail,
         }
     }, {
@@ -57,7 +57,7 @@ export = async () => {
         parent: vpc
     });
 
-    // TODO: X. Use a 3rd pary module to compute subnets CIDR
+    // TODO: 5. Use a 3rd pary module to compute subnets CIDR
     const subnetCidrBlock = `${subnetCidr.base}/${subnetCidr.bitmask}`;
 
     // TODO: 2. Create public subnet
@@ -68,7 +68,7 @@ export = async () => {
         mapPublicIpOnLaunch: true,
         availabilityZone: availabilityZone,
         tags: {
-            // TODO: A. Resource tagged
+            // TODO: 8. Resource tagged
             owner: ownerEmail,
         }
     }, {
@@ -103,7 +103,7 @@ export = async () => {
             protocol: '-1'
         }],
         tags: {
-            // TODO: A. Resource tagged
+            // TODO: 8. Resource tagged
             owner: ownerEmail,
         },
     }, {

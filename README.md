@@ -20,10 +20,10 @@ Exercises to learn how to use Pulumi (3rd session)
 
 ### Bonus/Challenges ###
 
-X. Use a 3rd pary module to compute subnets CIDR
-Y. Generate a SSH key pair (ed25519) and pass it to the VM, verify you can SSH the VM
-Z. Ensure the project can easily be configured (ie, no hardcoded values where possible)
-A. Resources are tagged so it's easy to create an AWS Budget for cost tracking purpose
+5. Use a 3rd pary module to compute subnets CIDR
+6. Generate a SSH key pair (ed25519) and pass it to the VM, verify you can SSH the VM
+7. Ensure the project can easily be configured (ie, no hardcoded values where possible)
+8. Resources are tagged so it's easy to create an AWS Budget for cost tracking purpose
 
 ### Answers ###
 You will find all the answers [here](answer/).
