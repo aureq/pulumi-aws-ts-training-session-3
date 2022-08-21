@@ -1,6 +1,10 @@
 # Pulumi training using TypeScript (3rd session)
 Exercises to learn how to use Pulumi (3rd session)
 
+## Introduction ##
+
+In this session, you will learn how to create a ully functional VPC and a virtula machine. You'll also learn how to use 3rd party library to perform tasks more efficiently and in a reliable way. You'll have another opportunity to use string concatenation on Output<T>.
+
 ## Content ##
 
 0. Create an `exercise` folder and switch to it
