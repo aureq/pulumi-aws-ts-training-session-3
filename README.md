@@ -12,7 +12,7 @@ In this session, you will learn how to create a ully functional VPC and a virtul
 2. Create the following resources, and make sure they are all nested under the correct parent
    * A VPC (10.42.0.0/16)
    * An Internet Gateway
-   * A public Subnet
+   * A public Subnet (/20)
    * A security group and allow port 22 inbound
    * A route table
    * Associate the route table and the subnet together
