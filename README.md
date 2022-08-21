@@ -36,5 +36,5 @@ In this session, you will learn how to create a ully functional VPC and a virtul
 
 * Pulumi [examples](https://github.com/pulumi/examples)
 
-### Answers ###
+## Answers ##
 You will find all the answers [here](answer/).
