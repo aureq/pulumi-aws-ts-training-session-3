@@ -22,8 +22,8 @@ In this session, you will learn how to create a ully functional VPC and a virtul
    * ensure you can SSH into it
 4. Create stack outputs for:
    * the VM host name
-   * the VM default user name
    * the SSH private key as secret
+   * the SSH public key
 
 ### Bonus/Challenges ###
 
@@ -31,6 +31,10 @@ In this session, you will learn how to create a ully functional VPC and a virtul
 6. Generate a SSH key pair (ed25519) and pass it to the VM using user-data, verify you can SSH the VM (as 'admin')
 7. Ensure the project can easily be configured (ie, no hardcoded values where possible)
 8. Resources are tagged so it's easy to create an AWS Budget for cost tracking purpose
+
+### Resources ###
+
+* Pulumi [examples](https://github.com/pulumi/examples)
 
 ### Answers ###
 You will find all the answers [here](answer/).
