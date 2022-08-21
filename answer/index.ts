@@ -1,6 +1,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 import { Netmask } from "netmask";
+import * as tls from "@pulumi/tls";
 
 const config = new pulumi.Config();
 
@@ -112,7 +113,55 @@ export = async () => {
         deleteBeforeReplace: true
     });
 
+    // TODO: 3. Create a SSH key
+    const sshPrivateKey = new tls.PrivateKey(`${baseName}-private-key`, {
+        // TODO: 6. Generate a SSH key pair (ed25519)
+        algorithm: "ED25519"
+    });
+
+    // TODO: 3. Retrieve the most recent Debian 11 AMI for amd64
+    const debianAmi = aws.ec2.getAmi({
+        filters: [{
+            name: "name",
+            values: ["debian-11-amd64-*"]
+        }],
+        owners: ["136693071363"],
+        mostRecent: true,
+    });
+
+    // TODO: 6. Generate user data (aka cloud-init configuration)
+    // NOTE: This needs to be a valid YAML
+    const userData = pulumi.interpolate`#cloud-config
+repo_update: true
+repo_upgrade: all
+
+users:
+  - default:
+    ssh_authorized_keys:
+      - ${sshPrivateKey.publicKeyOpenssh}
+`;
+
+    const vm = new aws.ec2.Instance(`${baseName}-vm`, {
+        ami: (await debianAmi).imageId,
+        instanceType: "t3.micro",
+        subnetId: pubSubnet.id,
+        vpcSecurityGroupIds: [securityGroup.id],
+        userDataReplaceOnChange: true,
+        // TODO: 6. pass it to the VM using user-data
+        userData: userData,
+        tags: {
+            // TODO: 8. Resource tagged
+            owner: ownerEmail,
+        },
+    }, {
+        parent: vpc
+    });
+
     return {
         vpcId: vpc.id,
+        sshPrivKey: sshPrivateKey.privateKeyOpenssh,
+        sshPubKey: sshPrivateKey.publicKeyOpenssh,
+        sshKeyFingerprint: sshPrivateKey.publicKeyFingerprintSha256,
+        hostname: vm.publicDns
     }
 }
