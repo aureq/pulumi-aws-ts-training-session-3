@@ -7,8 +7,7 @@ In this session, you will learn how to create a ully functional VPC and a virtul
 
 ## Content ##
 
-0. Create an `exercise` folder and switch to it
-1. Create a new TypeScript project for AWS using AWS Classic
+1. Switch to the `exercise` folder, create a new stack and install the node modules (`npm install`)
 2. Create the following resources, and make sure they are all nested under the correct parent
    * A VPC (10.42.0.0/16)
    * An Internet Gateway

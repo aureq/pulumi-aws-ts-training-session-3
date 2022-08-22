@@ -3,7 +3,7 @@ Answers to the 3rd training 3rd session
 
 ## Answers ##
 
-1. `pulumi stack init loginName/dev`
+1. `pulumi new aws-typescript`
 2. See [index.ts](index.ts)
 3. npm install --save "@pulumi/tls"
    See [index.ts](index.ts)
